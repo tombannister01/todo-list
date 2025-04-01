@@ -1,12 +1,29 @@
+import { Suspense, lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { Home } from "./pages/Home";
-import { TodoList } from "./pages/TodoList";
+import Loader from "./components/Loader";
+
+const Home = lazy(() => import("./pages/Home"));
+const TodoList = lazy(() => import("./pages/TodoList"));
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home />},
-  { path: "/Todo-list", element: <TodoList />}
-])
+  {
+    path: "/",
+    element: (
+      <Suspense fallback={<Loader />}>
+        <Home />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/todo-list",
+    element: (
+      <Suspense fallback={<Loader />}>
+        <TodoList />
+      </Suspense>
+    ),
+  }
+]);
 
 function App() {
   return <RouterProvider router={router} />;
