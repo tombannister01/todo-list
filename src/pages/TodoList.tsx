@@ -12,10 +12,6 @@ const TodoList: React.FC = () => {
       setInput("");
     }
 
-
-  }
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value)
   }
 
 
@@ -25,7 +21,7 @@ const TodoList: React.FC = () => {
         {list.map((listItem: string, index: number) => <li key={index}>{listItem}</li>)}
       </ul>
       <form onSubmit={handleSubmit}>
-        <input name="input" onChange={handleInput} />
+        <input name="input" onChange={(e) => setInput(e.target.value)} />
       </form>
     </>
   )
