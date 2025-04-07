@@ -1,15 +1,9 @@
-import { useNavigate } from "react-router-dom";
-
-
-
+import Button from "../components/Button";
 
 const Home: React.FC = () => {
-
-  const navigate = useNavigate()
-
   return (
     <>
-      <button onClick={() => navigate('/todo-list')}>Todo-list</button>
+      <Button navigateTo={'./todo-list'} text={'Todo-list'} />
       <div>Home</div>
 
     </>

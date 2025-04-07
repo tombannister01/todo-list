@@ -8,9 +8,6 @@ interface IListItem {
 }
 
 const TodoList: React.FC = () => {
-
-
-
   const [list, setList] = useState<IListItem[]>([]);
   const [input, setInput] = useState<string>("");
 
